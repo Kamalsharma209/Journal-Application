@@ -35,7 +35,14 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+
+        if (user.getUsername() == null || user.getUsername().isBlank()) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("Username cannot be null or empty");
+        }
+
         userService.saveEntry(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
