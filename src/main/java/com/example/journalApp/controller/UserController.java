@@ -1,6 +1,5 @@
 package com.example.journalApp.controller;
 
-import com.example.journalApp.entity.JournalEntry;
 import com.example.journalApp.entity.User;
 import com.example.journalApp.service.JournalEntryService;
 import com.example.journalApp.service.UserService;
@@ -10,11 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
-
-import static org.springframework.data.mongodb.core.schema.JsonSchemaProperty.objectId;
 
 @RestController
 @RequestMapping("/user")
@@ -23,29 +18,6 @@ public class UserController {
     private UserService userService;
     @Autowired
     private JournalEntryService journalEntryService;
-
-    @GetMapping
-    public ResponseEntity<?> getAllUser() {
-        List<User> all = userService.getAll();
-        if (all != null && !all.isEmpty()) {
-            return new ResponseEntity<>(all, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @PostMapping
-    public ResponseEntity<?> createUser(@RequestBody User user) {
-
-        if (user.getUsername() == null || user.getUsername().isBlank()) {
-            return ResponseEntity
-                    .badRequest()
-                    .body("Username cannot be null or empty");
-        }
-
-        userService.saveEntry(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
-    }
 
     @GetMapping("/id/{Userid}")
     public ResponseEntity<User> getEntries(@PathVariable String Userid){
@@ -71,7 +43,7 @@ public class UserController {
         if(old != null){
             old.setUsername(newUser.getUsername() != null && !newUser.getUsername().equals("") ? newUser.getUsername() : old.getUsername());
             old.setPassword(newUser.getPassword() != null && !newUser.getPassword().equals("") ? newUser.getPassword() : old.getPassword());
-            userService.saveEntry(old);
+            userService.saveNewUser(old);
             return new ResponseEntity<>(old , HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
