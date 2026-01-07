@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://kamalsharma6020_db_user:fV2UjI5GDhyo7OZv@cluster0.cses3tg.mongodb.net/?appName=Cluster0
+      database: Journaldb
+      auto-index-creation: true
+  main:
+    allow-circular-references: true
+server:
+  port: 8080
+  servlet:
+    context-path: /journal
