@@ -29,7 +29,7 @@ public class UserService {
             user.setRoles(Arrays.asList("USER"));
             userRepository.save(user);
         } catch (Exception e) {
-            log.error("Error occured at {} :",user.getUsername(),e);
+            log.error("Error occurred at {} :",user.getUsername(),e);
         }
     }
     public void saveAdmin(User user) {
