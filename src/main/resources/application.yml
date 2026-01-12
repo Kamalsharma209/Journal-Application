@@ -1,12 +1,14 @@
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://kamalsharma6020_db_user:fV2UjI5GDhyo7OZv@cluster0.cses3tg.mongodb.net/?appName=Cluster0
-      database: Journaldb
+      uri: mongodb+srv://kamalsharma6020_db_user:fV2UjI5GDhyo7OZv@cluster0.cses3tg.mongodb.net/Journaldb?retryWrites=true&w=majority&tls=true&appName=JournalApp
       auto-index-creation: true
-  main:
-    allow-circular-references: true
+
 server:
   port: 8080
   servlet:
     context-path: /journal
+
+weather:
+  api:
+    key: 55e72d58496b3308cf51cc9bd0093f37
