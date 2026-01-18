@@ -4,6 +4,18 @@ spring:
       uri: mongodb+srv://kamalsharma6020_db_user:fV2UjI5GDhyo7OZv@cluster0.cses3tg.mongodb.net/Journaldb?retryWrites=true&w=majority&tls=true&appName=JournalApp
       auto-index-creation: true
 
+  mail:
+    host: smtp.gmail.com
+    port: 567
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable:true
+
 server:
   port: 8081
   servlet:
