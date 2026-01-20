@@ -1,0 +1,2 @@
+26-01-19 19:57:59.472 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.journalApp.service.RedisTest]: RedisTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+26-01-19 19:57:59.838 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.journalApp.JournalApplication for test class com.example.journalApp.service.RedisTest

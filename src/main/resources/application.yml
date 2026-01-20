@@ -3,6 +3,9 @@ spring:
     mongodb:
       uri: mongodb+srv://kamalsharma6020_db_user:fV2UjI5GDhyo7OZv@cluster0.cses3tg.mongodb.net/Journaldb?retryWrites=true&w=majority&tls=true&appName=JournalApp
       auto-index-creation: true
+    redis:
+      host: localhost
+      port: 6379
 
   mail:
     host: smtp.gmail.com
