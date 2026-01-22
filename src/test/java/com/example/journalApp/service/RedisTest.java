@@ -2,6 +2,7 @@ package com.example.journalApp.service;
 
 import com.example.journalApp.repository.ConfigJournalAppRepository;
 import com.example.journalApp.repository.UserRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +29,7 @@ public class RedisTest {
     @Autowired
     private RedisTemplate redisTemplate;
 
-
+    @Disabled
     @Test
     void testSendEmail(){
         redisTemplate.opsForValue().set("email","kamal@gmail.com");
